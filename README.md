@@ -1,80 +1,75 @@
-# video-object-removal
-Just draw a bounding box and you can remove the object you want to remove.
-## Installation
-All the code has been tested on Ubuntu 16.04, Python 3.5, **Pytorch 0.4.0**, CUDA 8.0, GTX1080Ti GPU.
+Video Object Removal 🎥
 
-- Clone the repository 
-```shell
-git clone https://github.com/zllrunning/video-object-removal.git
+This project allows users to remove unwanted objects from videos by simply drawing a bounding box around the object. The system automatically tracks and removes the object across frames using deep learning techniques.
+
+✨ Features
+Remove objects from videos easily
+Works on both image sequences and video files
+Uses object tracking + video inpainting
+Simple command-line interface
+🛠️ Tech Stack
+Python
+PyTorch
+Computer Vision
+Deep Learning (Object Tracking + Inpainting)
+📂 Project Setup
+1. Clone the repository
+git clone https://github.com/Anjalisharma3463/video-object-removal.git
 cd video-object-removal
+2. Install dependencies
+
+Go inside folders and run setup scripts:
+
 cd get_mask
 bash make.sh
+
 cd ../inpainting
 bash install.sh
+
 cd ..
-```
+📥 Download Pretrained Models
 
-## Demo
-- Download pretrained models of [SiamMask](http://www.robots.ox.ac.uk/~qwang/SiamMask_DAVIS.pth) and [Inpainting](https://drive.google.com/file/d/1KAi9oQVBaJU9ytr7dYr2WwEcO5NLiJvo/view?usp=sharing)
-- Put them in `cp/` folder
-- Then just run:
-```
+Download required models:
+
+SiamMask model
+Inpainting model
+
+👉 Place them inside a folder named:
+
+cp/
+▶️ How to Run
+Run on dataset:
 python demo.py --data data/Human6
-```
-- It also **supports video file**.
-```
+Run on video:
 python demo.py --data data/bag.avi
-```
-- Another optional parameter : `--mask-dilation`
+⚙️ Optional Parameter
+--mask-dilation
 
-```
-python demo.py --data data/Human6  --mask-dilation 24
-```
-This parameter controls the size of the dilation kernel used for the mask. The role is to expand the range of the mask to avoid edge problems. Please see `inpainting/davis.py` for more details.
+Example:
 
----
-**1. Just draw a bounding box like this:**
+python demo.py --data data/Human6 --mask-dilation 24
 
-![](results/get_mask.gif)
+👉 This helps improve object removal edges.
 
-**2. The objected will be removed and the inpainted video will be saved in `results/inpainting` folder.** (The Gif image loading takes some time, please wait a moment.)
+🧠 How It Works (Simple Explanation)
+User selects object using bounding box
+Model tracks object across frames
+Mask is generated
+Inpainting fills removed area
+Final clean video is generated
+📸 Results
+Object tracking
+Object removal
+Smooth background reconstruction
+🙏 Credits
 
-![](results/sgif.gif)
+This project is based on:
 
-### Examples
-![](results/skate.gif)
-![](results/surf.gif)
----
+SiamMask
+Deep Video Inpainting
+👩‍💻 Author
 
-## Acknowledgement
-- This repo is based on [SiamMask](https://github.com/foolwood/SiamMask) and [Deep-Video-Inpainting](https://github.com/mcahny/Deep-Video-Inpainting). Many thanks to the excellent repo.
+Anjali Sharma
 
-## Citation
-```
-@article{Wang2019SiamMask,
-    title={Fast Online Object Tracking and Segmentation: A Unifying Approach},
-    author={Wang, Qiang and Zhang, Li and Bertinetto, Luca and Hu, Weiming and Torr, Philip HS},
-    journal={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-    year={2019}
-}
-```
-```bibtex
-@inproceedings{kim2019deep,
-  title={Deep Video Inpainting},
-  author={Kim, Dahun and Woo, Sanghyun and Lee, Joon-Young and So Kweon, In},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  pages={5792--5801},
-  year={2019}
-```
-
-
-
-
-
-
-
-
-
-
-
-
+GitHub: https://github.com/Anjalisharma3463
+LinkedIn: https://www.linkedin.com/in/anjali-sharma-760a06238
