@@ -1,0 +1,9 @@
+data/
+results/
+cp/
+*.avi
+*.mp4
+*.jpg
+*.png
+*.pth
+source-code/
